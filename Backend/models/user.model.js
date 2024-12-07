@@ -33,12 +33,12 @@ const userSchema= new mongoose.Schema({
     }
 })
 
-userSchema.statics.generateAuthToken = async function(){
-    const token =await jwt.sign({_id:this._id},process.env.JWT_SECRET)
+userSchema.methods.generateAuthToken =  function(){
+    const token = jsonwebtoken.sign({_id:this._id},process.env.JWT_SECRET)
     return token;
 }
 
-userSchema.statics.comparePassword= async function(password){
+userSchema.methods.comparePassword= async function(password){
     return await bcrypt.compare(password,this.password);
 }
 
