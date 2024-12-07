@@ -33,8 +33,8 @@ const userSchema= new mongoose.Schema({
     }
 })
 
-userSchema.statics.generateAuthToken = function(){
-    const token = jsonwebtoken.sign({_id:this._id},process.env.JWT_SECRET)
+userSchema.statics.generateAuthToken = async function(){
+    const token =await jwt.sign({_id:this._id},process.env.JWT_SECRET)
     return token;
 }
 

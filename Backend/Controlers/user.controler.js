@@ -24,9 +24,9 @@ const registerUser=async (req,res,next)=>{
         password:hashedPassword
     });
 
-    // const token=user.generateAuthToken();
+    // const token= await user.generateAuthToken();
 
-    res.status(200).json({user});
+    res.status(200).json({token,user});
 }
 
 export default registerUser;
