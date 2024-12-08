@@ -2,7 +2,7 @@ import express from 'express';
 import {body} from 'express-validator';
 import { authUser } from '../middlewares/auth.middleware.js';
 
-import {registerUser,loginUser,getUserProfile} from '../Controlers/user.controler.js';
+import {registerUser,loginUser,getUserProfile,logoutUser} from '../Controlers/user.controler.js';
 
 
 const router = express.Router();
@@ -23,5 +23,7 @@ router.post("/login",[
 )
 
 router.get("/profile",authUser,getUserProfile)
+
+router.get("/logout",logoutUser)
 
 export default router;
