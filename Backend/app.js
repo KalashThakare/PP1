@@ -5,6 +5,7 @@ import cors from 'cors';
 import connectToDb from './db/db.js';
 import userRoutes from './routes/user.route.js'
 import cookieParser from 'cookie-parser';
+import  captainRoutes from './routes/captain.routes.js';
 
 connectToDb();
 const app=express();
@@ -20,6 +21,8 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/users",userRoutes);
+
+app.use("/captain",captainRoutes);
 
 
 
