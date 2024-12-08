@@ -1,6 +1,5 @@
 import { validationResult } from "express-validator";
 import userModel from "../models/user.model.js";
-import userService from '../services/user.service.js';
 import createUser from "../services/user.service.js";
 
 
@@ -54,5 +53,9 @@ export const loginUser=async (req,res,next)=>{
     const token=user.generateAuthToken();
 
     res.status(200).json({token,user});
+}
+
+export const getUserProfile=async (req,res,next)=>{
+    res.status(200).json(req.user);
 }
 
