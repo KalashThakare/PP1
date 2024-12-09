@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
-const captainSchema=mongoose.Schema({
+const captainSchema=new mongoose.Schema({
     fullname:{
         firstname:{
             type:String,

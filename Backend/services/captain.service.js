@@ -21,6 +21,6 @@ export const createCaptain= async({
             capacity,
             vehicleType
         }
-    })
+    });
     return captain;
 }
