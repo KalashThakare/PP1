@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { data, Link,useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import {UserDataContext} from '../Context/userContext';
+
 
 const UserSignup = () => {
 
@@ -7,11 +10,37 @@ const UserSignup = () => {
   const [Firstname, setFirstname] = useState('')
   const [lastname, setlastname] = useState('')
   const [password, setpassword] = useState('')
+  const [userData, setuserData] = useState({})
 
-  const submitHandler=(e)=>{
+  const Navigate=useNavigate();
+
+  const {user,setUser}=React.useContext(UserDataContext)
+
+  const submitHandler=async (e)=>{
     e.preventDefault();
-  }
+    const newUser={
+      fullname:{
+        firstname:Firstname,
+        lastname:lastname,
+      },
+      email:email,
+      password:password
+    }
 
+    const response=await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`,newUser);
+
+    if (response.status==201){
+      const data=response.data
+      setUser(data.user)
+      Navigate('/home')
+    }
+
+    setFirstname('')
+    setlastname('')
+    setemail('')
+    setpassword('')
+
+  }
 
   return (
     <div className='p-7 flex flex-col justify-between h-screen'>
