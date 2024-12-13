@@ -7,6 +7,7 @@ import Captainlogin from './pages/Captainlogin'
 import CaptainSignup from './pages/CaptainSignup'
 import Home from './pages/Home'
 
+
 const App = () => {
   return (
     <div>

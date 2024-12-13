@@ -26,7 +26,7 @@ const Userlogin = () => {
     if(response.status==201){
       const data=response.data
       setuser(data.user);
-      navigate("/home")
+      navigate('/home')
     }
 
     setemail('')
