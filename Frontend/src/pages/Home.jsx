@@ -30,10 +30,12 @@ const Home = () => {
     }
     else{
       gsap.to(panelref.current,{
-        height:'0%'
+        height:'0%',
+        
       })
       gsap.to(panelCloseRef.current,{
-        opacity:0
+        opacity:0,
+        
       })
     }
   },[isopen])
@@ -43,7 +45,7 @@ const Home = () => {
 
 
   return (
-    <div className='h-screen relative'>
+    <div className='h-screen relative overflow-hidden'>
       <img className='w-[4rem] absolute ml-8 mt-5' src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Uber_logo_2018.png/1200px-Uber_logo_2018.png" alt="" />
 
       <div className='h-screen w-screen'>
