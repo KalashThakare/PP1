@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import {gsap} from 'gsap'
 import {useGSAP} from "@gsap/react";
 import 'remixicon/fonts/remixicon.css'
+import SearchLocation from '../Component/SearchLocation';
 
 const Home = () => {
 
@@ -20,7 +21,8 @@ const Home = () => {
   useGSAP(function(){
     if(isopen){
       gsap.to(panelref.current,{
-        height:'70%'
+        height:'70%',
+        padding:'25'
       })
       gsap.to(panelCloseRef.current,{
         opacity:1
@@ -84,7 +86,9 @@ const Home = () => {
             className='bg-[#eee] rounded-lg px-10 py-2 w-full mt-3 text-base' type="text" placeholder='Add your destination' />
           </form>
         </div>
-        <div ref={panelref} className='bg-red-700 h-[]'></div>
+        <div ref={panelref} className='bg-white'>
+          <SearchLocation />
+        </div>
       </div>
     </div>
   )
