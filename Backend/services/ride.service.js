@@ -2,8 +2,6 @@ import ridemodel from "../models/ride.model";
 // import mapservice
 
 
-
-const createRide=async ({})=>{}
 //function to calculate fare
 async function getfare(pickup,destination){
 
@@ -33,4 +31,22 @@ async function getfare(pickup,destination){
 
     return fair;
 
+}
+
+
+const createRide=async ({user,pickup,destination,vehicleType})=>{
+    if(!user || !destination || !pickup || !vehicleType){
+        throw new Error('All fields are necessary');
+    }
+
+    const fare = await getfair(pickup,destination)
+
+    const ride = ridemodel.create({
+        user,
+        pickup,
+        destination,
+        fare:fare[vehicleType]
+    })
+
+    return ride;
 }
