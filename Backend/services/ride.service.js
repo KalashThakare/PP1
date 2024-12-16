@@ -1,0 +1,1 @@
+import ridemodel from "../models/ride.model";
