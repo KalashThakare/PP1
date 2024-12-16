@@ -34,7 +34,9 @@ async function getfare(pickup,destination){
 }
 
 
-const createRide=async ({user,pickup,destination,vehicleType})=>{
+export const createRide=async ({user,pickup,destination,vehicleType})=>{
+
+
     if(!user || !destination || !pickup || !vehicleType){
         throw new Error('All fields are necessary');
     }
